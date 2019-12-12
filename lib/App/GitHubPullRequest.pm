@@ -171,6 +171,8 @@ sub checkout {
     my $head_branch = $pr->{'head'}->{'ref'};
     my $head_user   = $pr->{'head'}->{'user'}->{'login'};
 
+    $head_repo =~ s'https://github.com/'git@github.com:';
+
     # Check if the remote already exists in our repo
     my $head_remote;
     foreach my $line ( _qx("git", "remote -v") ) {
